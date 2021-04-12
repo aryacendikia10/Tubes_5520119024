@@ -14,6 +14,7 @@
                    <div class="card-header">
                        {{ __('Pengelolaan Buku') }}
                        <button class="btn btn-primary float-right" data-toggle="modal" data-target="#tambahBukuModal"><i class="fa fa-plus"></i> Tambah Data</button>
+                       <a href="{{ route('admin.print.books') }}" target="_blank" class="btn btn-secondary"><i class="fa fa-print"></i>Cetak PDF</a>
                     </div>
                    <div class="card-body">
                        <table id="table-data" class="table table-borderer display nowrap" style="width:100%">
@@ -47,8 +48,8 @@
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" id="btn-edit-buku" class="btn btn-success" data-toggle="modal" data-target="#editBukuModal" data-id="{{ $book->id }}">Ubah</button>
-                                                <button type="button" id="btn-delete-buku" class="btn btn-danger" data-toggle="modal" data-target="#deleteBukuModal" data-id="{{ $book->id }}" data-cover="{{ $book->cover }}">Hapus</button>			
-                                            </div>                                
+                                                <button type="button" id="btn-delete-buku" class="btn btn-danger" data-toggle="modal" data-target="#deleteBukuModal" data-id="{{ $book->id }}" data-cover="{{ $book->cover }}">Hapus</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -91,7 +92,7 @@
                   <label for="cover">Cover</label>
                   <input type="file" class="form-control" name="cover" id="cover"/>
               </div>
-  
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -101,7 +102,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="modal fade" id="editBukuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -141,7 +142,7 @@
                       <input type="file" class="form-control" name="cover" id="edit-cover"/>
                   </div>
               </div>
-          </div>   
+          </div>
         </div>
         <div class="modal-footer">
           <input type="hidden" name="id" id="edit-id"/>
@@ -178,14 +179,14 @@
       </div>
     </div>
   </div>
-  
+
 @stop
 @section('js')
-    <script> 
+    <script>
         $(function(){
             $("#datepicker").datepicker( {
                 format: "yyyy", // Notice the Extra space at the beginning
-                viewMode: "years", 
+                viewMode: "years",
                 minViewMode: "years"
             });
             $(document).on('click', '#btn-delete-buku', function(){
@@ -200,7 +201,7 @@
                 let id = $(this).data('id');
 
                 $('#image-area').empty();
-                
+
                 $.ajax({
                     type: "get",
                     url: baseurl+'/admin/ajaxadmin/dataBuku/'+id,
@@ -215,7 +216,7 @@
 
                         if (res.cover !== null) {
                             $('#image-area').append(
-                                "<img src='"+baseurl+"/storage/cover_buku/"+res.cover+"' width='200px'/>" 
+                                "<img src='"+baseurl+"/storage/cover_buku/"+res.cover+"' width='200px'/>"
                             );
                         } else {
                             $('#image-area').append('[Gambar tidak tersedia]');
@@ -229,7 +230,7 @@
 @stop
 @section('js')
     <script>
-	     
+
     </script>
 @stop
 
