@@ -14,10 +14,10 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'TikiToko',
     'title_prefix' => '',
     'title_postfix' => '',
-
+ 
     /*
     |--------------------------------------------------------------------------
     | Favicon
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Tiki</b>Toko',
+    'logo_img' => 'vendor/adminlte/dist/img/tikitoko.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'TikiToko',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-info',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -126,7 +126,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-info elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -230,24 +230,41 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'isAdmin',
+            'text' => 'Dashboard',
+            'url'  => 'home',
+            'icon' => 'fas fa-tachometer-alt',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Buku',
-            'url'         => 'admin/books',
-            'icon'        => 'fas fa-fw fa-book',
+            'text'        => 'Pengelolaan Barang',
+            'url'         => 'barang',
+            'icon'        => 'fas fa-file',
             'can'         => 'isAdmin',
         ],
-        ['header' => 'account_settings'],
+        [
+            'text'        => 'Barang',
+            'url'         => 'user/barang',
+            'icon'        => 'fas fa-file',
+            'can'         => 'isUser',
+        ],
+        [
+            'text'        => 'Kategori Barang',
+            'url'         => 'kategori',
+            'icon'        => 'fas fa-edit',
+            'can'         => 'isAdmin',
+        ],
+        [
+            'text'        => 'Merk Barang',
+            'url'         => 'merk',
+            'icon'        => 'fas fa-tree',
+            'can'         => 'isAdmin',
+        ],
+        [
+            'text'        => 'Laporan Pembelanjaan',
+            'url'         => 'laporan',
+            'icon'        => 'fas fa-copy',
+            'can'         => 'isAdmin',
+        ],
+        /*['header' => 'account_settings'],
         [
             'text' => 'profile',
             'url'  => 'profile',
@@ -311,8 +328,9 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ],*/
     ],
+
 
     /*
     |--------------------------------------------------------------------------
